@@ -1,0 +1,7 @@
+beautifulsoup4
+python-dateutil
+requests
+
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
