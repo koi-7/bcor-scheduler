@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/koi-7/bcor-scheduler/assets/61448492/1142cea9-d153-4869-9c91-803529dc69ca">
+  <img src="https://github.com/koi-7/bcor-scheduler/assets/61448492/75783dcb-23d7-4a2a-9b03-b6c40424e51f">
 </p>
 
 # bcor-scheduler
