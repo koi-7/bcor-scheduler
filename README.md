@@ -19,11 +19,13 @@ $ git clone github:koi-7/bcor-scheduler.git
 
 ### `bcor-scheduler/data/credentials.json`
 
-Google の credentials ファイルを用意する
+Google の credentials ファイルを用意する（サービスアカウント設定時にできる json ファイルの名前を `credenials.json` に変更して設置）
 
 ### `bcor-scheduler/config/config.ini`
 
-`bcor-scheduler/config/template.ini` を参考に Slack のチャンネル URL とトークンが書き込まれた `bcor-scheduler/config/config.ini` を作成する
+`bcor-scheduler/config/template.ini` を参考に以下が書き込まれた `bcor-scheduler/config/config.ini` を作成する
+- Google カレンダーのカレンダー ID
+- Slack のチャンネル URL とトークン
 
 ## 3. Requirements
 
