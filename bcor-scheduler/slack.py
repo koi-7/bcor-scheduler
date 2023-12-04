@@ -3,8 +3,6 @@
 
 import requests
 
-from .consts import *
-
 
 class Slack:
     def __init__(self, channel_id, token):
@@ -19,9 +17,7 @@ class Slack:
     def token(self):
         return self.__token
 
-    def notify(self, number_of_schedules):
-        text = Consts.TEXT_NOTIFY.format(number_of_schedules)
-
+    def notify(self, text):
         api_url = 'https://slack.com/api/chat.postMessage'
         headers = {'Authorization': f'Bearer {self.token}'}
         data = {'channel': self.channel_id, 'text': text}
