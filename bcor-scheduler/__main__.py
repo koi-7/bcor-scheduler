@@ -62,7 +62,7 @@ def main():
         schedule.register(service)
 
     slack = Slack(config_ini['Slack']['channel_id'], config_ini['Slack']['token'])
-    slack.notify(len(schedules))
+    slack.notify(Consts.SLACK_TEXT.format(len(schedules)))
 
 
 if __name__ == '__main__':
