@@ -36,26 +36,10 @@ $ pip3 install -r bcor-scheduler/requirements.txt
 ## 4. `/opt/` に配置
 
 ``` bash
-$ sudo mv bcor-scheduler/ /opt/
+$ sudo mv ~/bcor-scheduler/ /opt/
 ```
 
-## 5. `~/.bashrc` に PYTHONPATH を設定
-
-``` bash
-$ vim ~/.bashrc
-```
-
-```
-export PYTHONPATH=$PYTHONPATH:/opt/bcor-scheduler/
-```
-
-設定を反映させる
-
-``` bash
-$ source ~/.bashrc
-```
-
-## 6. cron の設定（例）
+## 5. cron の設定（例）
 
 毎月 15 日の 12 時に動くように cron を設定する
 
@@ -65,6 +49,7 @@ $ crontab -e
 
 ```
 CRON_TZ=Asia/Tokyo
+PYTHONPATH=$PYTHONPATH:/opt/bcor-scheduler/
 0 12 15 * * /usr/bin/python3 -m bcor-scheduler
 ```
 
