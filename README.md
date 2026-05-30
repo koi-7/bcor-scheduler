@@ -8,6 +8,10 @@
 
 # Usage
 
+## 0. 前提
+
+uv を使用する
+
 ## 1. ダウンロード
 
 ``` bash
@@ -21,27 +25,34 @@ $ git clone github:koi-7/bcor-scheduler.git
 
 Google の credentials ファイルを用意する（サービスアカウント設定時にできる json ファイルの名前を `credenials.json` に変更して設置）
 
-### `bcor-scheduler/config/config.ini`
+### `bcor-scheduler/.env`
 
-`bcor-scheduler/config/template.ini` を参考に以下が書き込まれた `bcor-scheduler/config/config.ini` を作成する
+`bcor-scheduler/.env_template` を参考に以下が書き込まれた `bcor-scheduler/config/.env` を作成する
 - Google カレンダーのカレンダー ID
 - Slack のチャンネル URL とトークン
 
-## 3. Requirements
-
-``` bash
-$ pip3 install -r bcor-scheduler/requirements.txt
-```
-
-## 4. `/opt/` に配置
+## 3. `/opt/` に配置
 
 ``` bash
 $ sudo mv ~/bcor-scheduler/ /opt/
 ```
 
-## 5. cron の設定（例）
+## 4. 必要なパッケージをインストール
 
-毎月 15 日の 12 時に動くように cron を設定する
+``` bash
+$ uv sync
+```
+
+## 5-1. 実行例（通常）
+
+``` bash
+$ cd /opt/bcor-scheduler/
+$ uv run -m bcor_scheduler
+```
+
+## 5-2. 実行例（cron で実行）
+
+設定例: 毎月 15 日の 12 時に動くように cron を設定する
 
 ``` bash
 $ crontab -e
@@ -49,8 +60,8 @@ $ crontab -e
 
 ```
 CRON_TZ=Asia/Tokyo
-PYTHONPATH=$PYTHONPATH:/opt/bcor-scheduler/
-0 12 15 * * /usr/bin/python3 -m bcor-scheduler
+PATH=$PATH:/home/<user name>/.local/bin/
+0 12 15 * * cd /opt/bcor-scheduler/; uv run -m bcor_scheduler
 ```
 
 タイムゾーンを反映するために cron を再起動する
