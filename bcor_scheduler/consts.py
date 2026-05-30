@@ -6,7 +6,6 @@ import os
 
 class Consts:
     PATH_MAIN_DIR = os.path.dirname(__file__)
-    PATH_CONFIG = os.path.join(PATH_MAIN_DIR, '../config/config.ini')
     PATH_CREDENTIALS = os.path.join(PATH_MAIN_DIR, '../data/credentials.json')
     PATH_LOG = os.path.join(PATH_MAIN_DIR, '../logs/bcor-scheduler.log')
 
@@ -18,3 +17,8 @@ class Consts:
     COLOR_ID = '4'
 
     SLACK_TEXT = '来月の試合を {} 件登録しました。'
+
+    class EnvKey:
+        GOOGLE_CALENDAR_ID = 'GOOGLE_CALENDAR_ID'
+        SLACK_CHANNEL_ID = 'SLACK_CHANNEL_ID'
+        SLACK_BOT_TOKEN = 'SLACK_BOT_TOKEN'
